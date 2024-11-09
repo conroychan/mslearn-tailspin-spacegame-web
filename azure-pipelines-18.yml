@@ -1,0 +1,20 @@
+trigger:
+- '*'
+
+pool:
+  name: Default # Replace Default with the name of your agent pool if you used a different pool
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK 6.x'
+  inputs:
+    packageType: sdk
+    version: '6.x'
+
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: true
